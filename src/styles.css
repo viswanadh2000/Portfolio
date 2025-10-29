@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --card: 18, 18, 20;
+  --muted: 161, 161, 170;
+}
+
+.section {
+  @apply max-w-6xl mx-auto px-6 sm:px-10 py-16 sm:py-24;
+}
+
+.card {
+  @apply bg-zinc-900/60 rounded-2xl border border-zinc-800 shadow-lg;
+}

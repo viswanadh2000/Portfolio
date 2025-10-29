@@ -1,16 +1,39 @@
 import React from 'react'
 import profile from '../assets/profile.jpg'
+import { motion } from 'framer-motion'
+import { Typewriter } from 'react-simple-typewriter'
+
 
 export default function Hero() {
   return (
-    <div className="section grid md:grid-cols-[1.1fr_1fr] gap-10 items-center">
-      <div className="space-y-6">
-        <p className="text-emerald-400 text-sm">Java Developer</p>
+    <motion.div
+      className="section grid md:grid-cols-[1.1fr_1fr] gap-10 items-center"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
+      <motion.div
+        className="space-y-6"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+      >
+        <p className="text-emerald-400 text-sm">
+          <Typewriter
+            words={["Java Developer | Spring Boot | Microservices | AWS | Kafka"]}
+            loop={0}
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1500}
+          />
+        </p>
         <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
           Hi, I'm <span className="text-emerald-400">Viswanadh Kakani</span>.
           <br /> I build backend services & data pipelines.
         </h1>
-        <p className="text-zinc-300">
+        <p className="text-zinc-300 dark:text-zinc-400">
           8+ years crafting enterprise systems with Spring Boot, Microservices,
           Kafka, AWS, and Snowflake. I focus on reliability, performance, and clean architecture.
         </p>
@@ -18,15 +41,20 @@ export default function Hero() {
           <a href="#projects" className="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 transition">View Projects</a>
           <a href="mailto:viswanadhkakani27@gmail.com" className="px-5 py-3 rounded-xl border border-zinc-700 hover:border-zinc-500">Contact Me</a>
         </div>
-        <div className="flex gap-4 pt-2 text-zinc-300">
-          <a className="hover:text-white" href="https://www.linkedin.com/in/viswanadh_kakani" target="_blank">LinkedIn</a>
-          <a className="hover:text-white" href="https://github.com/viswanadh2000" target="_blank">GitHub</a>
-          <a className="hover:text-white" href="https://github.com/viswanadh2000/Airlines" target="_blank">Airlines Project</a>
+        <div className="flex gap-4 pt-2 text-zinc-300 dark:text-zinc-400">
+          <a className="hover:text-white" href="https://www.linkedin.com/in/viswanadh_kakani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a className="hover:text-white" href="https://github.com/viswanadh2000" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a className="hover:text-white" href="https://github.com/viswanadh2000/Airlines" target="_blank" rel="noopener noreferrer">Airlines Project</a>
         </div>
-      </div>
-      <div className="flex justify-center md:justify-end">
-        <img src={profile} alt="Viswanadh Kakani" className="w-56 h-56 sm:w-72 sm:h-72 object-cover rounded-3xl border border-zinc-800 shadow-2xl" />
-      </div>
-    </div>
+      </motion.div>
+      <motion.div
+        className="flex justify-center md:justify-end"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
+      >
+  <img src={profile} alt="Profile photo of Viswanadh Kakani" loading="lazy" className="w-56 h-56 sm:w-72 sm:h-72 object-cover rounded-3xl border border-zinc-800 shadow-2xl" />
+      </motion.div>
+    </motion.div>
   )
 }

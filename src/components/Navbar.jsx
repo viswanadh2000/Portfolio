@@ -21,7 +21,7 @@ export default function Navbar() {
           ))}
         </nav>
         <a
-          href="/resume/Viswanadh_Kakani_Resume.pdf"
+          href="https://drive.google.com/file/d/1z19xW73DwVBAUx2MWycWswhdtp3kLi4d/view?usp=sharing"
           className="text-sm px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 transition"
           download
         >

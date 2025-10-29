@@ -1,13 +1,12 @@
 import React from 'react';
-import profile from '../assets/profile.jpg';
+import profile from '../assets/images/profile.jpg';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import { Particles } from '@tsparticles/react';
 
-
 export default function Hero() {
   return (
-    <div className="relative section grid md:grid-cols-[1.1fr_1fr] gap-10 items-center bg-gradient-to-r from-emerald-500 to-blue-600 overflow-hidden">
+    <div className="relative min-h-[calc(100vh-6rem)] section grid md:grid-cols-[1.1fr_1fr] gap-10 items-center bg-gradient-to-r from-emerald-500/10 to-blue-600/10 overflow-hidden">
       <Particles
         className="absolute inset-0 z-0"
         options={{
@@ -44,7 +43,7 @@ export default function Hero() {
           <br /> I build backend services & data pipelines.
         </h1>
         <p className="text-zinc-100 dark:text-zinc-300">
-          4+ years crafting enterprise systems with Spring Boot, Microservices,
+          8+ years crafting enterprise systems with Spring Boot, Microservices,
           Kafka, AWS, and Snowflake. I focus on reliability, performance, and clean architecture.
         </p>
         <div className="flex gap-3">
@@ -63,7 +62,17 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.4, ease: 'easeOut' }}
       >
-        <img src={profile} alt="Profile photo of Viswanadh Kakani" loading="lazy" className="w-56 h-56 sm:w-72 sm:h-72 object-cover rounded-3xl border border-zinc-800 shadow-2xl" />
+        <img 
+          src={profile} 
+          alt="Profile photo of Viswanadh Kakani" 
+          loading="lazy" 
+          className="w-56 h-56 sm:w-72 sm:h-72 object-cover rounded-3xl border border-zinc-800 shadow-2xl"
+          onError={(e) => {
+            console.error('Error loading image:', e);
+            e.target.onerror = null;
+            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5OCIgc3Ryb2tlPSIjMTBiOTgxIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9IiMxZTI5M2IiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iODAiIHI9IjMwIiBmaWxsPSIjMTBiOTgxIi8+CjxwYXRoIGQ9Ik0xNTAgMTgwQzE1MCAxNDAgMTI4IDEyMCAxMDAgMTIwQzcyIDEyMCA1MCAxNDAgNTAgMTgwIiBmaWxsPSIjMTBiOTgxIi8+Cjwvc3ZnPg==';
+          }}
+        />
       </motion.div>
     </div>
   );

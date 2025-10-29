@@ -1,8 +1,10 @@
 <!doctype html>
 <html lang="en" class="dark">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preload" href="/src/assets/images/profile.jpg" as="image" />
+  <link rel="preload" href="/resume/Viswanadh_Kakani_Java_Developer_Resume_2025.pdf" as="fetch" crossorigin="anonymous" />
   <title>Viswanadh Kakani | Java Developer</title>
   <meta name="description" content="Portfolio of Viswanadh Kakani, Java Developer specialized in Spring Boot, Microservices, and AWS.">
   <meta name="author" content="Viswanadh Kakani">
@@ -22,6 +24,50 @@
   </head>
   <body class="bg-zinc-950 text-zinc-100 antialiased">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <script type="module" src="/src/main.jsx"></script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        "name": "Viswanadh Kakani",
+        "jobTitle": "Java Developer",
+        "url": "https://viswanadhkakani.dev",
+        "sameAs": [
+          "https://github.com/viswanadh2000",
+          "https://linkedin.com/in/viswanadh_kakani",
+          "https://twitter.com/viswanadhkakani"
+        ],
+        "description": "Java Developer specialized in Spring Boot, Microservices, and AWS",
+        "knowsAbout": [
+          "Java",
+          "Spring Boot",
+          "Microservices",
+          "AWS",
+          "Kafka",
+          "React",
+          "System Design"
+        ],
+        "workExperience": [
+          {
+            "@type": "Organization",
+            "name": "USAA",
+            "jobTitle": "Lead Developer"
+          },
+          {
+            "@type": "Organization",
+            "name": "CITI",
+            "jobTitle": "Backend Developer"
+          }
+        ]
+      }
+    </script>
   </body>
 </html>

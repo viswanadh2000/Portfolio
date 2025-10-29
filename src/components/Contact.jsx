@@ -1,26 +1,52 @@
 import React, { useRef, useState } from 'react'
 import emailjs from 'emailjs-com'
 
+const AUTO_REPLY_TEMPLATE = {
+  subject: 'Thanks for reaching out!',
+  message: `Hi {{name}},
+
+Thank you for your message. I'll get back to you within 24 hours.
+
+Best regards,
+Viswanadh Kakani`
+};
+
 export default function Contact() {
   const form = useRef();
   const [status, setStatus] = useState(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setStatus(null);
-    emailjs.sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
-      form.current,
-      'YOUR_PUBLIC_KEY'
-    )
-      .then(() => {
-        setStatus('success');
-        form.current.reset();
-      })
-      .catch(() => {
-        setStatus('error');
-      });
+    
+    try {
+      // Send the original message
+      await emailjs.sendForm(
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
+        form.current,
+        'YOUR_PUBLIC_KEY'
+      );
+
+      // Send auto-reply
+      const formData = new FormData(form.current);
+      await emailjs.send(
+        'YOUR_SERVICE_ID',
+        'YOUR_AUTO_REPLY_TEMPLATE_ID',
+        {
+          to_email: formData.get('email'),
+          to_name: formData.get('name'),
+          message: AUTO_REPLY_TEMPLATE.message.replace('{{name}}', formData.get('name'))
+        },
+        'YOUR_PUBLIC_KEY'
+      );
+
+      setStatus('success');
+      form.current.reset();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setStatus('error');
+    }
   };
 
   return (

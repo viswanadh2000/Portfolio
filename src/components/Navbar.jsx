@@ -73,7 +73,8 @@ export default function Navbar() {
               <a
                 href="/resume/Viswanadh_Kakani_Java_Developer_Resume_2025.pdf"
                 download
-                className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold"
+                className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold animate-[pulseGlow_2s_infinite] shadow-lg"
+                style={{ boxShadow: '0 0 10px #10b981' }}
               >
                 Download
               </a>

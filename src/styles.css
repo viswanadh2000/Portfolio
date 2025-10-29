@@ -14,3 +14,8 @@
 .card {
   @apply bg-zinc-900/60 rounded-2xl border border-zinc-800 shadow-lg;
 }
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px #10b981; }
+  50% { box-shadow: 0 0 20px #34d399; }
+}

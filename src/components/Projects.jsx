@@ -1,5 +1,6 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import TechStackFilter from './TechStackFilter.jsx';
 
 const projects = [
   {
@@ -8,14 +9,32 @@ const projects = [
     link: 'https://github.com/viswanadh2000/Airlines',
     tags: ['Java', 'Spring Boot', 'Microservices']
   },
-]
+  {
+    name: 'Kafka Data Pipeline',
+    desc: 'Real-time data streaming with Kafka and AWS.',
+    link: 'https://github.com/viswanadh2000/kafka-pipeline',
+    tags: ['Kafka', 'AWS', 'Java']
+  },
+  {
+    name: 'React Portfolio',
+    desc: 'Personal portfolio built with React and Tailwind CSS.',
+    link: 'https://github.com/viswanadh2000/portfolio',
+    tags: ['React', 'AWS']
+  },
+];
 
 export default function Projects() {
+  const [selectedTech, setSelectedTech] = useState('');
+  const filteredProjects = selectedTech
+    ? projects.filter(p => p.tags.includes(selectedTech))
+    : projects;
+
   return (
     <div className="section">
       <h2 className="text-2xl font-semibold mb-6">Projects</h2>
+      <TechStackFilter selected={selectedTech} setSelected={setSelectedTech} />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((p) => (
+        {filteredProjects.map((p) => (
           <motion.a
             key={p.name}
             href={p.link}
@@ -37,5 +56,5 @@ export default function Projects() {
         ))}
       </div>
     </div>
-  )
+  );
 }
